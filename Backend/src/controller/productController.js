@@ -3,7 +3,8 @@ const Product = require("../models/productModel");
 
 module.exports.productCreateController = async (req, res) => {
     try {
-        const { name, image, description, quantity, price, discount, category, brand, stock } = req.body;
+        const { name, description, quantity, price, category, brand, stock } = req.body;
+        const {image} = req.file
          //  erros ke liye 
         const errors = [];
 
@@ -22,6 +23,7 @@ module.exports.productCreateController = async (req, res) => {
         // categoryExists
 
         const categoryExists =  await Category.findOne({category});
+        console.log(categoryExists)
         if(!categoryExists){
             return res.status(400).json({
                 message:"Error In Creating Product Category Not Exists"
@@ -46,6 +48,7 @@ module.exports.productCreateController = async (req, res) => {
 
     }
     catch (error) {
+          console.log(error)
         return res.status(400).json({
             message: "Error In Creating Product"
         })
