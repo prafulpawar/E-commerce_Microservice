@@ -1,0 +1,27 @@
+{
+  "name": "profile-management-system",
+  "version": "1.0.0",
+  "description": "profile management system with auth",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon or node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prafulpawar/Profile-Management-System.git"
+  },
+  "keywords": [
+    "ProfileManagementSystem"
+  ],
+  "author": "Prafull",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prafulpawar/Profile-Management-System/issues"
+  },
+  "homepage": "https://github.com/prafulpawar/Profile-Management-System#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  }
+}
