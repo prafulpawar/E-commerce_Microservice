@@ -4,7 +4,8 @@
   "description": "profile management system with auth",
   "main": "server.js",
   "scripts": {
-    "test": "nodemon or node server.js"
+    "test": "nodemon"
+    
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.10.1"
+    "mongoose": "^8.10.1",
+    "nodemon": "^3.1.9"
   }
 }
