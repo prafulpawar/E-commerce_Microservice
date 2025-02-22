@@ -54,5 +54,43 @@ module.exports.userCreate = async (req, res) => {
 }
 
 module.exports.loginUser = async (req,res)=>{
+    try{
+
+      const { username, email, password } = req.body;
+    
+      if (!email) {
+        return res.status(400).json({
+          message: "Username Is Required"
+        })
+      }
+      if (!password) {
+        return res.status(400).json({
+          message: "Username Is Required"
+        })
+      }
   
+      // Cheking if user is exists
+      const existsUser = await userModel.findOne({email});
+      if(!existsUser){
+        return res.status(400).json({
+          message: "User Is Not Exists Register Here!!!"
+        })
+      }
+      // compare password
+      const comparePassword = await userModel.comparePassword(password,existsUser.password)
+      if(!comparePassword){
+        return res.status(400).json({
+          message:"Here Invalid Credentials"
+        })
+      }
+
+
+
+
+    }
+    catch(error){
+      return res.status(400).json({
+        message: error.message
+      })
+    }
 }

@@ -28,6 +28,11 @@ userSchema.methods.generateToken = function (savedUser){
       password:savedUser.password
    },config.JWT_SECRET)
 }
+
+userSchema.statics.comparePassword = async function (inputpassword,password){
+    return bcrypt.compare(inputpassword,password)
+}
+
 userSchema.statics.hashPassword = async function (password){
   return await bcrypt.hash(password,10)
 }
