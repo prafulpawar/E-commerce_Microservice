@@ -52,3 +52,7 @@ module.exports.userCreate = async (req, res) => {
     })
   }
 }
+
+module.exports.loginUser = async (req,res)=>{
+  
+}
