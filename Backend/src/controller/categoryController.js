@@ -2,7 +2,8 @@ const Category = require("../models/categoryModel");
 
 module.exports.categoryController = async(req,res)=>{
     try{
-       const {category,image,description} = req.file;
+       const {filename} = req.file;
+       const {category,description} = req.body;
        
        if(!category){
         return res.status(400).json({
@@ -17,8 +18,8 @@ module.exports.categoryController = async(req,res)=>{
        }
 
       // Cheking Category Exists
-      const isCategoryExists = await Category.findOne(category)
-      if(!isCategoryExists){
+      const isCategoryExists = await Category.findOne({category})
+      if(isCategoryExists){
           return res.status(400).send({
             message:"Category Is Alredy Exists"
           })
@@ -27,12 +28,19 @@ module.exports.categoryController = async(req,res)=>{
       // created category
       const createdCategory = await Category.create({
           category,
-          image,
+          image:filename,
           description,
       })
+   
+      return res.status(400).json({
+        data:createdCategory,
+        message:" Created Category"
+    })
+
 
     }
     catch(error){
+         console.log(error)
         return res.status(400).json({
             message:"Failed To  Create Category"
         })
