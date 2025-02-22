@@ -37,13 +37,13 @@ module.exports.userCreate = async (req, res) => {
           password:hashedPassword
     })
     // hum token generate karenge ab 
-    const token = await userModel.generateToken(savedUser)
-
+    const token =  savedUser.generateToken(savedUser)
+    // error in token generation
+    
     return res.status(200).json({
       message:"User Registred SucessFully",
       token:token
     })
-
   }
 
   catch (error) {
