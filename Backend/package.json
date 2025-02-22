@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon"
-    
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
   "homepage": "https://github.com/prafulpawar/Profile-Management-System#readme",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.1",
