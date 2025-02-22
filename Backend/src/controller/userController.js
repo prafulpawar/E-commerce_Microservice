@@ -125,6 +125,7 @@ module.exports.profileController = async(req,res)=>{
 
 module.exports.updateProfile = async(req,res)=>{
     try{ 
+      
        
          
     }
