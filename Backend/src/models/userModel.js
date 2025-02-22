@@ -25,9 +25,14 @@ userSchema.methods.generateToken = function (savedUser){
    return jwt.sign({
       _id:savedUser.id,
       email:savedUser.email,
-      password:savedUser.password
    },config.JWT_SECRET)
 }
+
+
+userSchema.statics.verifyToken =  function (token){
+    return  jwt.verify(token,config.JWT_SECRET)
+}
+
 
 userSchema.statics.comparePassword = async function (inputpassword,password){
     return bcrypt.compare(inputpassword,password)

@@ -73,7 +73,7 @@ module.exports.loginUser = async (req,res)=>{
       const existsUser = await userModel.findOne({email});
       if(!existsUser){
         return res.status(400).json({
-          message: "User Is Not Exists Register Here!!!"
+          message: "Here Invalid Credentials"
         })
       }
       // compare password
@@ -83,6 +83,12 @@ module.exports.loginUser = async (req,res)=>{
           message:"Here Invalid Credentials"
         })
       }
+     const token = await existsUser.generateToken(existsUser);
+
+      return res.status(200).json({
+        message:true,
+        token:token
+      })
 
 
 
@@ -93,4 +99,15 @@ module.exports.loginUser = async (req,res)=>{
         message: error.message
       })
     }
+}
+
+module.exports.profileController = async(req,res)=>{
+   try{
+       
+   }
+   catch(error){
+    return res.status(400).json({
+      message: error.message
+    })
+  }
 }
