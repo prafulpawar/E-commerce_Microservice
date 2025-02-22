@@ -125,9 +125,21 @@ module.exports.profileController = async(req,res)=>{
 
 module.exports.updateProfile = async(req,res)=>{
     try{ 
-      
-       
-         
+         const {filename} = req.file
+         const existsUser = await userModel.findById(req.user.id)    
+         if(!existsUser){
+           return res.status(400).json({
+            message:"Not Exists An User"
+           })
+         }   
+
+         const updateImage = await userModel.findByIdAndUpdate(req.user.id,{
+             profile:filename
+         })
+         return res.status(200).json({
+          message:"Profile Updated Successfully",
+          data:updateImage
+         })
     }
     catch(error){
       console.log(error)
