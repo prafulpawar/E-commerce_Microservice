@@ -10,12 +10,12 @@ module.exports.userCreate = async (req, res) => {
     }
     if (!email) {
       return res.status(400).json({
-        message: "Username Is Required"
+        message: "Email Is Required"
       })
     }
     if (!password) {
       return res.status(400).json({
-        message: "Username Is Required"
+        message: "Password Is Required"
       })
     }
 
@@ -130,6 +130,7 @@ module.exports.updateProfile = async(req,res)=>{
          
     }
     catch(error){
+      console.log(error)
       return res.status(400).json({
         message: error.message
       })

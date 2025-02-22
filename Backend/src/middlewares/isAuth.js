@@ -9,7 +9,7 @@ module.exports.isAuth = async (req,res,next)=>{
     }
 
     const decode = await userModel.verifyToken(token);
-    console.log(decode)
+
     if(!decode){
         return res.status(400).json({
             message:'Error  Authrization'
