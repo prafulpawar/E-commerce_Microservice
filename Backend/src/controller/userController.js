@@ -20,7 +20,15 @@ module.exports.userCreate = async (req, res) => {
     }
 
     // Cheking if user is exists
-    const existsUser = await userModel.findOne({email});
+    const existsUser = await userModel.find(
+       {
+        $or:[
+            {email:email},
+            {username:username}
+        ]
+       }
+    );
+
     if(existsUser){
       return res.status(400).json({
         message: "User Is Already Exists"
@@ -103,7 +111,10 @@ module.exports.loginUser = async (req,res)=>{
 
 module.exports.profileController = async(req,res)=>{
    try{
-       
+       const data = await userModel.findById(req.user.id).select('-password')
+       return res.status(400).json({
+        message: data
+      })
    }
    catch(error){
     return res.status(400).json({
