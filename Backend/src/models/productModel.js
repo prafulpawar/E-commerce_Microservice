@@ -87,12 +87,12 @@ const productSchema = new mongoose.Schema(
 );
 
 
-// productSchema.virtual('finalPrice').get(function () {
-//   return this.price - (this.price * this.discount) / 100;
-// });
+productSchema.virtual('finalPrice').get(function () {
+  return this.price - (this.price * this.discount) / 100;
+});
 
 
-// productSchema.index({ name: 'text', description: 'text' });
+productSchema.index({ name: 'text', description: 'text' });
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

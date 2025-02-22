@@ -10,12 +10,6 @@ module.exports.categoryController = async(req,res)=>{
         })
        }
 
-       if(!image){
-        return res.status(400).json({
-            message:"Image Is Required"
-        })
-       }
-
        if(!description){
         return res.status(400).json({
             message:"Image Is Required"
@@ -36,11 +30,6 @@ module.exports.categoryController = async(req,res)=>{
           image,
           description,
       })
-    
-
-
-
-
 
     }
     catch(error){
