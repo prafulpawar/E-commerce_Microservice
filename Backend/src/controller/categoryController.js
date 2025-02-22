@@ -2,7 +2,7 @@ const Category = require("../models/categoryModel");
 
 module.exports.categoryController = async(req,res)=>{
     try{
-       const {category,image,description} = req.body;
+       const {category,image,description} = req.file;
        
        if(!category){
         return res.status(400).json({
