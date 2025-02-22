@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const categoryModel = require('./categoryModel');
 
 const productSchema = new mongoose.Schema(
   {
@@ -79,14 +78,6 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
   },
   {
     timestamps: true,
@@ -96,18 +87,12 @@ const productSchema = new mongoose.Schema(
 );
 
 
-productSchema.virtual('finalPrice').get(function () {
-  return this.price - (this.price * this.discount) / 100;
-});
+// productSchema.virtual('finalPrice').get(function () {
+//   return this.price - (this.price * this.discount) / 100;
+// });
 
 
-productSchema.index({ name: 'text', description: 'text' });
+// productSchema.index({ name: 'text', description: 'text' });
 
-
-productSchema.pre('save', function (next) {
-  this.updatedAt = Date.now();
-  next();
-});
-
-const productModel = mongoose.model('Product', productSchema);
-module.exports = productModel;
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;
