@@ -124,8 +124,9 @@ module.exports.profileController = async(req,res)=>{
 }
 
 module.exports.updateProfile = async(req,res)=>{
-    try{
-
+    try{ 
+       
+         
     }
     catch(error){
       return res.status(400).json({
