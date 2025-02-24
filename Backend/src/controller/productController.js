@@ -4,7 +4,7 @@ const Product = require("../models/productModel");
 module.exports.productCreateController = async (req, res) => {
     try {
         const { name, description, quantity, price, category, brand, stock } = req.body;
-        // const {image} = req.file
+        //  const {image} = req.file
         const errors = [];
 
         if (!name) errors.push("Required Name");
@@ -19,8 +19,6 @@ module.exports.productCreateController = async (req, res) => {
             console.log(error)
             return res.status(400).json({ errors });
         }
-      
-       
 
         const categoryExists =  await Category.findOne({category});
        
@@ -32,7 +30,7 @@ module.exports.productCreateController = async (req, res) => {
 
         const productCreated = await Product.create({
             name,
-            image,
+            // image,
             description,
             price,
             category:categoryExists._id,
