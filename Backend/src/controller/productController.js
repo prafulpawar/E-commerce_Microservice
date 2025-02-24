@@ -17,6 +17,7 @@ module.exports.productCreateController = async (req, res) => {
         if (stock === undefined || stock < 0) errors.push("Required Stock (must be ≥ 0)");
 
         if (errors.length > 0) {
+            console.log(error)
             return res.status(400).json({ errors });
         }
       
@@ -37,7 +38,7 @@ module.exports.productCreateController = async (req, res) => {
             image,
             description,
             price,
-            category:categoryExists.id,
+            category:categoryExists._id,
             brand,
             stock
         })
@@ -45,8 +46,7 @@ module.exports.productCreateController = async (req, res) => {
          message:productCreated,
        })
         
-
-    }
+}
     catch (error) {
           console.log(error)
         return res.status(400).json({
