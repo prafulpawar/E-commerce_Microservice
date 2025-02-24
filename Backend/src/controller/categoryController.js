@@ -2,7 +2,7 @@ const Category = require("../models/categoryModel");
 
 module.exports.categoryController = async(req,res)=>{
     try{
-       const {filename} = req.file;
+    //    const {filename} = req.file;
        const {category,description} = req.body;
        
        if(!category){
@@ -28,7 +28,7 @@ module.exports.categoryController = async(req,res)=>{
       // created category
       const createdCategory = await Category.create({
           category,
-          image:filename,
+          image,
           description,
       })
    

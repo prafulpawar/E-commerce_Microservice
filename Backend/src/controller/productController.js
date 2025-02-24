@@ -4,8 +4,7 @@ const Product = require("../models/productModel");
 module.exports.productCreateController = async (req, res) => {
     try {
         const { name, description, quantity, price, category, brand, stock } = req.body;
-        const {image} = req.file
-         //  erros ke liye 
+        // const {image} = req.file
         const errors = [];
 
         if (!name) errors.push("Required Name");
@@ -21,17 +20,15 @@ module.exports.productCreateController = async (req, res) => {
             return res.status(400).json({ errors });
         }
       
-        // categoryExists
+       
 
         const categoryExists =  await Category.findOne({category});
-        console.log(categoryExists)
+       
         if(!categoryExists){
             return res.status(400).json({
                 message:"Error In Creating Product Category Not Exists"
             })
         }
-
-        // categoryExists
 
         const productCreated = await Product.create({
             name,

@@ -64,7 +64,7 @@ module.exports.userCreate = async (req, res) => {
 module.exports.loginUser = async (req,res)=>{
     try{
 
-      const { username, email, password } = req.body;
+      const { email, password } = req.body;
     
       if (!email) {
         return res.status(400).json({
