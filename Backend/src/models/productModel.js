@@ -29,12 +29,7 @@ const productSchema = new mongoose.Schema(
       required: true,
       min: 0,
     },
-    discount: {
-      type: Number,
-      default: 0,
-      min: 0,
-      max: 100,
-    },
+    
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',
@@ -69,11 +64,16 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
-    stock: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
+
+    stock: [{
+      
+        type: Number,
+        required: true,
+        min: 0,
+      
+    }],
+
+
     isFeatured: {
       type: Boolean,
       default: false,
@@ -87,12 +87,9 @@ const productSchema = new mongoose.Schema(
 );
 
 
-productSchema.virtual('finalPrice').get(function () {
-  return this.price - (this.price * this.discount) / 100;
-});
 
 
 productSchema.index({ name: 'text', description: 'text' });
 
-const Product = mongoose.model('Product', productSchema);
-module.exports = Product;
+const ProductModel = mongoose.model('Product', productSchema);
+module.exports = ProductModel;

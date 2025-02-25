@@ -49,3 +49,50 @@ module.exports.productCreateController = async (req, res) => {
         })
     }
 }
+
+module.exports.manageStock = async(req,res)=>{
+    try{
+
+          const {quantity,productName} = req.body;
+          if(!quantity || quantity<1){
+             return res.status(400).json({
+                message:"Qunatity Required"
+             })
+          }
+
+          if(!productName){
+            return res.status(400).json({
+               message:"productID Required"
+            })
+         }
+   
+         const product = await Product.findOne({name:productName});
+        
+         if(!product){
+            return res.status(400).json({
+                message:"Product Is Required"
+            })
+         }
+         const updateStock = await Product.findOneAndUpdate(
+            { _id: product._id }, 
+            { 
+                $push: { stock: quantity } 
+            },
+            { new: true } 
+        );
+        
+
+        return res.status(200).send({
+            message:updateStock
+        })
+
+
+    }
+    catch(error){
+        console.log(error)
+        return res.status(400).json({
+            message:"Error In Managing Stock"
+        })
+    }
+}
+

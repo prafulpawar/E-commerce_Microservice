@@ -10,6 +10,6 @@ app.use(express.urlencoded({extended:false}))
 app.use('/users',userRoutes)
 app.use('/category',categoryRoutes)
 app.use('/product',productRoutes)
-app.use('/order',cartRoute)
+app.use('/cart',cartRoute)
 
 module.exports = app;
