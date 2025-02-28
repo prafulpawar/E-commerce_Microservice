@@ -65,15 +65,6 @@ const productSchema = new mongoose.Schema(
       },
     ],
 
-    stock: [{
-      
-        type: Number,
-        required: true,
-        min: 0,
-      
-    }],
-
-
     isFeatured: {
       type: Boolean,
       default: false,
