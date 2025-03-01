@@ -1,6 +1,6 @@
 const _config ={
       PORT:process.env.PORT,
-      MONGO_URI:process.env.MONGO_URI,
+      MONGO_URI_ADMINS:process.env.MONGO_URI_ADMINS,
       JWT_SECRET:process.env.JWT_SECRET
 } 
 

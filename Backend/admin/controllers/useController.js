@@ -20,12 +20,13 @@ module.exports.adminCreateController =  async(req,res)=>{
          })
         }
         //Check If User Exists
-        const existsUser = await userModel.find({
+        const existsUser = await userModel.findOne({
            $or:[
                {name:username},
                {email:email}
            ]
         })
+        console.log(existsUser)
         // if userExists 
         if(existsUser){
          return res.status(400).json({
@@ -50,10 +51,16 @@ module.exports.adminCreateController =  async(req,res)=>{
  
      })
        //token generation 
-       
+    const token = await user.generateToken(user)
+     return res.status(200).json({
+         token:token,
+         message:"User Created Successfully"
+     })
+      
 
       }
       catch(error){
+        console.log(error)
           return res.status(500).json({
              message:"Error While Creating A User"
           })
