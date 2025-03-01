@@ -258,7 +258,9 @@ componentWillUnmount(): Iska use memory cleanup aur event listeners remove karne
 
 Q6: useEffect() ka lifecycle methods se kya relation hai?
 
-useEffect() ko hum mounting, updating, aur unmounting ke liye use kar sakte hain. Yeh componentDidMount(), componentDidUpdate(), aur componentWillUnmount() ka combined version hai.
+useEffect() ko hum mounting, updating, aur unmounting ke liye use kar sakte hain. Yeh componentDidMount(), componentDidUpdate(), 
+
+aur componentWillUnmount() ka combined version hai.
 
 Q7: useEffect() me cleanup function ka kya kaam hota hai?
 
