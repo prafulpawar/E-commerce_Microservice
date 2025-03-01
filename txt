@@ -1,0 +1,98 @@
+Here are some basic Node.js interview questions with brief answers:
+
+1. What is Node.js?
+Answer: Node.js ek open-source, server-side runtime environment hai jo JavaScript ko execute karta hai.
+ Yeh Chrome’s V8 JavaScript engine par based hai aur non-blocking, event-driven I/O model follow karta hai, jo Node.js ko fast aur scalable banata hai.
+
+2. What is the Event Loop in Node.js?
+Answer: Event Loop ek mechanism hai jo asynchronous operations ko handle karta hai. 
+Jab koi request aati hai, toh event loop us request ko queue mein daal ke dusre tasks
+ ko execute karta hai aur jaise hi request complete hoti hai, 
+callback function ko execute karta hai.
+
+
+3. What are modules in Node.js?
+Answer: Modules Node.js ke building blocks hote hain. Har module apna functionality encapsulate karta hai.
+ Node.js mein built-in modules (e.g., fs, http, url) hote hain aur aap custom modules bhi bana sakte hain. require() 
+ function ka use karke modules ko import kiya jaata hai.
+
+
+4. What is the difference between synchronous and asynchronous functions in Node.js?
+Answer:
+Synchronous: Yeh functions sequentially execute hote hain, aur agla task uss function ke complete hone tak wait karta hai.
+Asynchronous: Yeh functions non-blocking hote hain, matlab jab ek task execute ho raha hota hai, tab dusra task execute ho sakta hai.
+
+5. What is the require() function in Node.js?
+Answer: require() Node.js mein modules ko import karne ke liye use hota hai. 
+Isse aap external modules (e.g., fs, http) ya apne custom modules ko apne program mein include kar sakte ho.
+
+6. What are Callbacks in Node.js?
+Answer: Callbacks functions hote hain jo ek operation complete hone par execute hote hain. Yeh asynchronous code 
+mein use hote hain taaki program block na ho. For example, file reading operation mein callback function execute hota hai jab file read ho jati hai.
+
+7. What is the process object in Node.js?
+Answer: process object Node.js mein ek global object hai jo current process ke state aur environment ko manage karta hai.
+Iske through aap environment variables, command-line arguments, aur process-specific information ko access kar sakte ho.
+
+8. What are streams in Node.js?
+Answer: Streams data ko read aur write karne ka ek efficient way hai. Node.js mein streams 4 types mein hoti hain: Readable, Writable, Duplex,
+ aur Transform. Yeh large data ko chunks mein process karte hain, jisse memory consumption optimize hoti hai.
+
+9. What is the fs module in Node.js?
+Answer: fs (File System) module Node.js mein file-related operations handle karta hai jaise file reading, writing,
+ updating, deleting, etc. Yeh synchronous aur asynchronous versions dono mein available hota hai.
+
+10. What is npm in Node.js?
+Answer: npm (Node Package Manager) ek package manager hai jo Node.js modules aur libraries ko manage karne ka kaam karta hai.
+ Aap npm install command ka use kar ke dependencies install kar sakte hain aur package.json file mein dependencies ko track kar sakte hain.
+
+11. What is Express.js?
+Answer: Express.js ek fast, unopinionated, minimalist web framework hai jo Node.js ke upar run karta hai. Yeh HTTP requests ko handle karta hai, 
+middleware use karna allow karta hai, aur routes ko define karne mein help karta hai.
+
+12. What are the main differences between Node.js and traditional server-side technologies (e.g., PHP, Java)?
+Answer: Node.js asynchronous aur event-driven architecture ko follow karta hai, jisme single-threaded process hota hai. 
+Jabki traditional technologies jaise PHP, Java synchronous blocking operations use karte hain. Node.js high concurrency aur I/O-bound applications ke liye ideal hai.
+
+13. What is the __dirname variable in Node.js?
+Answer: __dirname ek global variable hai jo current module ka directory path return karta hai. Yeh path module ke physical 
+location ko batata hai, jo kaafi useful hota hai jab aap relative file paths ko resolve karna chahte hain.
+
+14. How do you handle errors in Node.js?
+Answer: Node.js mein errors ko handle karne ke liye try-catch block ka use kiya jaata hai, ya asynchronous code mein errors ko 
+handle karne ke liye callback functions mein error argument use hota hai. Promises aur async/await ke case mein, .catch() method use hota hai.
+
+15. What is the role of process.nextTick() in Node.js?
+Answer: process.nextTick() ek asynchronous function hai jo current event loop cycle ke baad function ko execute karta hai.
+ Yeh event loop ke current phase ke baad callback ko execute karta hai, aur isse tasks ko priority ke saath run karne ka option milta hai.
+
+16. What are environment variables in Node.js?
+Answer: Environment variables ka use application configuration, environment-specific settings, aur sensitive information
+ (like API keys) ko store karne ke liye hota hai. Aap in variables ko process.env object ke through access kar sakte ho.
+
+17. What is the difference between setTimeout() and setImmediate() in Node.js?
+Answer: setTimeout() function ko aap ek specified delay ke baad execute karte ho, jabki setImmediate() function ko current
+ event loop cycle ke baad execute karte ho. setImmediate() ko priority di jaati hai.
+
+18. What is the use of Buffer in Node.js?
+Answer: Buffer Node.js mein binary data ko handle karne ke liye use hota hai. Jab aap binary data ko process karte ho (e.g., images, files),
+ buffer ka use data ko efficiently manipulate karne ke liye kiya jaata hai.
+
+19. How do you create a server in Node.js?
+Answer: Aap http module ka use karke ek server create kar sakte ho. Example:
+js
+Copy
+Edit
+const http = require('http');
+const server = http.createServer((req, res) => {
+    res.write('Hello, world!');
+    res.end();
+});
+server.listen(3000, () => {
+    console.log('Server running at http://localhost:3000');
+});
+
+20. What is the role of the EventEmitter class in Node.js?
+Answer: EventEmitter class ka use events ko manage karne ke liye hota hai. Isme events ko trigger karne aur 
+listeners ko register karne ka functionality hoti hai. Yeh asynchronous communication ka ek important part hai Node.js mein.
+Yeh kuch basic Node.js interview questions hain jo aapko interview ke liye prepare karne mein help karenge!

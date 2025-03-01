@@ -1,0 +1,190 @@
+1. React kya hai?
+React ek JavaScript library hai jo user interfaces banane ke liye use hoti hai.
+
+2. JSX kya hai?
+JSX ek syntax extension hai jo JavaScript ke andar HTML-like code likhne ki facility deta hai.
+
+3. React ka virtual DOM kya hai?
+Virtual DOM ek lightweight copy hota hai real DOM ka. React changes ko pehle virtual DOM mein karta hai aur phir real DOM mein efficiently update karta hai.
+
+4. React ke key features kya hain?
+Key features hain: JSX, Virtual DOM, Components, Unidirectional data flow, and Hooks.
+
+5. React component types kya hote hain?
+Class components aur Functional components.
+
+6. State aur props mein kya fark hai?
+State ek component ke internal data ko represent karta hai, jabki props parent se child component ko data pass karne ke liye use hote hain.
+
+7. Functional component aur class component mein kya difference hai?
+Class component mein this.state aur lifecycle methods hoti hain, jabki functional component mein hooks ka use hota hai.
+
+8. React hooks kya hote hain?
+React hooks functional components ko state aur lifecycle methods use karne ka tarika provide karte hain, jaise useState, useEffect, etc.
+
+9. useState hook ka use kaise karte hain?
+useState hook ka use state variable ko define karne ke liye hota hai.
+
+js
+Copy
+const [count, setCount] = useState(0);
+10. useEffect hook ka use kaise hota hai?
+useEffect hook side effects manage karne ke liye use hota hai, jaise API call, event listener, etc.
+
+js
+Copy
+useEffect(() => {
+    // side effect code
+}, [dependencies]);
+11. React Router kya hai?
+React Router ek library hai jo React applications mein navigation aur routing handle karti hai.
+
+12. componentDidMount lifecycle method ka use kya hota hai?
+componentDidMount lifecycle method tab call hota hai jab component render ho jata hai aur initial setup ki jarurat hoti hai.
+
+13. PureComponent kya hota hai?
+PureComponent ek optimized version hai class component ka jo automatic shallow comparison karta hai props aur state ka.
+
+14. Higher Order Components (HOC) kya hote hain?
+HOCs ek pattern hote hain jisme ek component ko dusre component ke through wrap kiya jata hai taaki functionality reuse ki ja sake.
+
+15. Redux kya hai?
+Redux ek state management library hai jo complex React applications ke liye centralized store manage karne ka kaam karti hai.
+
+16. Redux ka flow kya hota hai?
+Redux mein ek action dispatch hota hai, jise reducer process karta hai aur store update hota hai.
+
+17. mapStateToProps aur mapDispatchToProps ka kya role hai Redux mein?
+mapStateToProps state ko component mein map karta hai, aur mapDispatchToProps actions ko component mein map karta hai.
+
+18. useContext hook ka use kaise hota hai?
+useContext hook React ke context API ka use karta hai jo global state ko access karne ka tarika hai.
+
+19. Context API kya hai?
+Context API React ka built-in solution hai jo global state ko across components pass karne mein help karta hai without prop drilling.
+
+20. Prop drilling kya hota hai?
+Prop drilling tab hota hai jab props ko ek component se doosre component mein chain ke through pass kiya jata hai.
+
+21. Keys React mein kyun important hoti hain?
+Keys React ko identify karne mein madad karti hain ki kaunsa element change ho raha hai, jo efficient re-rendering mein help karti hai.
+
+22. useRef hook ka use kaise hota hai?
+useRef hook ka use DOM elements ko directly access karne ke liye ya mutable data store karne ke liye hota hai.
+
+23. React.memo kya karta hai?
+React.memo ek higher order component hai jo component ko optimize karta hai aur unnecessary re-renders ko prevent karta hai.
+
+24. useReducer hook kya karta hai?
+useReducer hook complex state logic ko handle karta hai jisme ek action aur reducer function ka use hota hai.
+
+25. React Fragment kya hai?
+React Fragment ek wrapper component hai jo DOM mein extra nodes add karne ke bina multiple children ko group karta hai.
+
+26. Error Boundaries kya hoti hain?
+Error boundaries wo components hote hain jo React application mein errors ko catch karte hain aur unhe handle karte hain.
+
+27. Lazy Loading kya hai React mein?
+Lazy loading ek technique hai jisme components ko tab load kiya jata hai jab wo actually required hote hain, isse performance improve hoti hai.
+
+28. React mein event handling kaise hoti hai?
+React mein event handling JavaScript ki tarah hoti hai, lekin React synthetic events ka use karta hai jo cross-browser compatibility provide karte hain.
+
+29. setState function ka kaam kya hota hai?
+setState function state ko update karta hai aur React ko batata hai ki component ko re-render karna hai.
+
+30. React mein conditional rendering kaise hoti hai?
+Conditional rendering mein hum JavaScript ka if, ternary operator, ya logical operators ka use karke elements ko render karte hain.
+
+31. PropTypes ka kya role hai?
+PropTypes ek validation system hai jo React components ke props ke type ko check karta hai aur warnings deta hai agar type mismatch ho.
+
+32. Controlled Components kya hote hain?
+Controlled components wo hote hain jisme form elements ka state React component mein manage hota hai.
+
+33. Uncontrolled Components kya hote hain?
+Uncontrolled components wo hote hain jisme form elements ka state directly DOM mein hota hai aur React state ko manage nahi karta.
+
+34. useCallback hook ka use kaise hota hai?
+useCallback hook kisi function ko memoize karta hai taaki wo unnecessary re-renders se bach sake.
+
+35. useMemo hook ka use kaise hota hai?
+useMemo hook expensive calculations ko memoize karta hai taaki wo unnecessary recalculation se bacha ja sake.
+
+36. React mein forms kaise handle karte hain?
+Forms ko handle karne ke liye React mein controlled components ya uncontrolled components ka use hota hai.
+
+37. React mein list rendering kaise hoti hai?
+List rendering mein hum map() function ka use karte hain taaki array elements ko render kar sake.
+
+38. React mein side effects kaise handle karte hain?
+Side effects ko handle karne ke liye useEffect hook ka use karte hain.
+
+39. Prop validation kya hoti hai React mein?
+Prop validation React mein ek feature hai jisme aap define kar sakte hain ki props ka type aur required properties kya honi chahiye.
+
+40. Code splitting kya hota hai React mein?
+Code splitting mein hum apne application ko chote chote parts mein divide karte hain taaki initial loading time kam ho.
+
+Yeh 40 ReactJS questions aapko React ke concepts samajhne aur prepare karne mein help karenge.
+
+React mein Two-way data binding ko implement karna thoda alag hota hai, kyunki React mein data one-way data flow principle follow karta hai. Iska matlab hai ki data state se UI (view) tak flow karta hai, lekin agar aapko two-way binding ki tarah ka behavior chahiye, to aapko state ko update karna padta hai jab user kisi input field ko change karta hai.
+
+React mein two-way data binding ka implementation form elements mein commonly use hota hai.
+
+Example of Two-way binding in React:
+Concept: React mein state ko form elements se bind kiya jata hai, aur jab user kuch change karta hai, 
+to state ko update kiya jata hai. Isse data dono directions mein flow karta hai: state to input (Model to View) aur input to state (View to Model).
+
+js
+Copy
+import React, { useState } from 'react';
+
+function App() {
+  // State to store the value
+  const [text, setText] = useState('');
+
+  // Function to handle input changes
+  const handleChange = (event) => {
+    setText(event.target.value); // Update state when user types
+  };
+
+  return (
+    <div>
+      <h1>Two-way Binding Example</h1>
+      {/* Model to View: value is bound to state */}
+      <input
+        type="text"
+        value={text}  // Model to View (binds state to input field)
+        onChange={handleChange}  // View to Model (updates state when input changes)
+      />
+      <p>Input Value: {text}</p>
+    </div>
+  );
+}
+
+export default App;
+Key Concepts:
+State Binding (Model to View): value={text} — Isse input field ki value React ke state ke value se bind ho jati hai. Matlab jab state change hoti hai, to input field bhi update ho jata hai.
+
+Event Handling (View to Model): onChange={handleChange} — Jab user input field mein kuch type karta hai, onChange event trigger hota hai aur usse state update hoti hai. Yeh ek tarah se data ko view se model mein le aata hai.
+
+Breakdown:
+Jab user input field ko type karta hai, onChange event handler handleChange ko call karta hai, jo input field ki value ko state (text) mein update kar deta hai.
+React automatically state ko input field ke value attribute ke saath sync kar deta hai, isliye jab state update hoti hai, input field bhi reflect hota hai.
+
+
+CORS (Cross-Origin Resource Sharing) ek security feature hai jo web browsers implement karte hain. Yeh ek mechanism hai jo allow karta hai ki ek website (origin A) doosri website (origin B) ke resources access kar sake, lekin sirf tab jab server explicitly permission de.
+
+🔹 CORS Ka Basic Concept
+Jab bhi ek browser JavaScript se kisi doosre origin par request bhejta hai (jaise fetch ya XMLHttpRequest se), toh browser check karta hai ki server ne us origin ko allow kiya hai ya nahi. Agar server CORS headers nahi bhejta, toh browser request ko block kar deta hai.
+
+🔹 Same-Origin Policy Kya Hai?
+Same-Origin Policy ek security rule hai jo browser implement karta hai, jisme ek web page sirf apne origin ke resources access kar sakta hai.
+🔸 Origin = Protocol + Domain + Port
+Agar koi website https://example.com hai, toh:
+
+✅ https://example.com/page1 (Allowed, Same-Origin)
+❌ https://api.example.com/data (Blocked, Different Origin)
+❌ http://example.com (Blocked, Different Protocol)
+CORS is policy ka exception hai jo specific origins ko allow karta hai.
