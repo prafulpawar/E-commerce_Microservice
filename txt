@@ -96,3 +96,15 @@ server.listen(3000, () => {
 Answer: EventEmitter class ka use events ko manage karne ke liye hota hai. Isme events ko trigger karne aur 
 listeners ko register karne ka functionality hoti hai. Yeh asynchronous communication ka ek important part hai Node.js mein.
 Yeh kuch basic Node.js interview questions hain jo aapko interview ke liye prepare karne mein help karenge!
+
+
+3. Express.js me Middleware kya hota hai?
+
+Answer: Middleware ek function hota hai jo request aur response ke beech execute hota hai. Yeh request modify kar sakta hai,
+ authentication check kar sakta hai, aur errors handle kar sakta hai. Types of middleware:
+
+Built-in Middleware (e.g., express.json(), express.urlencoded())
+
+Third-party Middleware (e.g., cors, helmet, morgan)
+
+Custom Middleware jo specific functionalities ke liye likha jata hai

@@ -188,3 +188,302 @@ Agar koi website https://example.com hai, toh:
 ❌ https://api.example.com/data (Blocked, Different Origin)
 ❌ http://example.com (Blocked, Different Protocol)
 CORS is policy ka exception hai jo specific origins ko allow karta hai.
+
+
+1. React Lifecycle Methods & Hooks
+
+Q1: React ke lifecycle methods kaun-kaun se hote hain? Inka use case kya hai?
+
+React ke lifecycle methods teen phases me divide kiye ja sakte hain:
+
+Mounting Phase: constructor(), static getDerivedStateFromProps(), render(), componentDidMount()
+
+Updating Phase: static getDerivedStateFromProps(), shouldComponentUpdate(), render(), getSnapshotBeforeUpdate(), componentDidUpdate()
+
+Unmounting Phase: componentWillUnmount()
+
+Q2: Functional aur Class components me lifecycle handling kaise different hoti hai?
+
+Class components lifecycle methods ka use karte hain, jabki functional components hooks ka use karte hain jaise useEffect(), useState(), useMemo(), etc.
+
+Feature
+
+Class Components
+
+Functional Components
+
+State Management
+
+this.state
+
+useState()
+
+Side Effects
+
+componentDidMount(), componentDidUpdate(), componentWillUnmount()
+
+useEffect()
+
+Performance Optimization
+
+shouldComponentUpdate()
+
+useMemo(), useCallback()
+
+Q3: Mounting phase me kaun-kaun se lifecycle methods execute hote hain?
+
+constructor()
+
+static getDerivedStateFromProps()
+
+render()
+
+componentDidMount()
+
+Q4: Updating phase me kaun-kaun se lifecycle methods execute hote hain?
+
+static getDerivedStateFromProps()
+
+shouldComponentUpdate()
+
+render()
+
+getSnapshotBeforeUpdate()
+
+componentDidUpdate()
+
+Q5: Unmounting phase me kaunsa lifecycle method hota hai aur iska kya role hai?
+
+componentWillUnmount(): Iska use memory cleanup aur event listeners remove karne ke liye hota hai.
+
+Q6: useEffect() ka lifecycle methods se kya relation hai?
+
+useEffect() ko hum mounting, updating, aur unmounting ke liye use kar sakte hain. Yeh componentDidMount(), componentDidUpdate(), aur componentWillUnmount() ka combined version hai.
+
+Q7: useEffect() me cleanup function ka kya kaam hota hai?
+
+Cleanup function componentWillUnmount() ki tarah kaam karta hai, jo memory leaks ko prevent karta hai.
+
+useEffect(() => {
+  const interval = setInterval(() => console.log("Running"), 1000);
+  return () => clearInterval(interval); // Cleanup
+}, []);
+
+Q8: Kya useEffect() synchronous hota hai ya asynchronous?
+
+useEffect() asynchronous nahi hota, lekin iska cleanup function synchronous hota hai.
+
+Q9: useMemo() aur useCallback() me kya difference hai?
+
+useMemo(): Computation ka result memoize karta hai.
+
+useCallback(): Function definition ko memoize karta hai.
+
+Q10: useReducer() aur useState() me kya difference hai?
+
+useState(): Simple state management ke liye.
+
+useReducer(): Complex state logic ke liye.
+
+2. Two-Way Binding
+
+Q11: React me two-way binding kaise implement karte hain?
+
+const [text, setText] = useState("");
+<input value={text} onChange={(e) => setText(e.target.value)} />
+
+Q12: Controlled aur Uncontrolled components me kya difference hai?
+
+Controlled Component: useState() ya useRef() ke through manage hota hai.
+
+Uncontrolled Component: Directly DOM me value store hoti hai.
+
+Q13: Form handling ke liye useState() aur useRef() me kya difference hai?
+
+useState(): React ke state me value store hoti hai.
+
+useRef(): DOM reference ka use hota hai.
+
+Q14: React me debouncing aur throttling kaise implement kar sakte hain?
+
+const debounce = (func, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+};
+
+3. Mounting & Unmounting
+
+Q15: Mounting aur Unmounting ka kya matlab hota hai?
+
+Mounting: Component ka DOM me load hona.
+
+Unmounting: Component ka DOM se remove hona.
+
+Q16: Functional component me mounting ke time kaun se hooks execute hote hain?
+
+useEffect(() => {...}, [])
+
+Q17: useEffect() ka cleanup function kab execute hota hai?
+
+Component unmount hone ya dependencies change hone par.
+
+Q18: Kya kisi component ko manually unmount kiya ja sakta hai?
+
+Haan, useState() ya useRef() ka use karke conditionally component unmount kar sakte hain.
+
+Q19: React Strict Mode ka mounting lifecycle methods par kya effect hota hai?
+
+Strict Mode me componentDidMount() aur useEffect() twice execute hote hain.
+
+4. Reconciliation Layer
+
+Q20: Reconciliation layer kya hoti hai?
+
+Yeh React ka process hai jo DOM updates ko efficiently handle karta hai.
+
+Q21: Virtual DOM aur Real DOM me kya difference hai?
+
+Virtual DOM ek lightweight in-memory representation hai.
+
+Real DOM browser ka actual DOM hai.
+
+Q22: React Fiber Architecture kya hai?
+
+Fiber ek optimized reconciliation engine hai jo rendering ko smooth banata hai.
+
+Q23: key prop ka kya role hota hai reconciliation process me?
+
+Yeh React ko efficiently re-rendering karne me madad karta hai.
+
+5. Optimization Techniques
+
+Q24: React me unnecessary re-renders kaise avoid kar sakte hain?
+
+React.memo()
+
+useMemo()
+
+useCallback()
+
+Q25: React.memo() aur useMemo() me kya difference hai?
+
+React.memo(): Pure component ke tarah work karta hai.
+
+useMemo(): Expensive computation ko optimize karta hai.
+
+Agar aur detail me kisi topic ka answer chahiye to batao
+
+
+React mein Hooks ek tarika hai jisse hum functional components ke andar state aur lifecycle methods ka use kar sakte hain
+ bina kisi class component ke. Hooks ne functional components ko aur bhi powerful bana diya hai aur ab hume class components likhne ki zaroorat nahi padti.
+
+🔹 Hooks Kyu Zaroori Hai?
+Pehle React mein agar hume state ya lifecycle methods ka use karna hota tha, toh hume class components likhne padte the. Lekin 
+hooks aane ke baad hum functional components ke andar hi state aur lifecycle features ka use kar sakte hain. Yeh React 16.8 mein introduce kiya gaya tha.
+
+⚡ Types of React Hooks
+🔹 Basic Hooks
+useState → Component ke andar state manage karne ke liye
+useEffect → Side effects (API calls, event listeners, timers) handle karne ke liye
+useContext → Context API ka use karne ke liye
+🔹 Additional Hooks
+useReducer → Complex state management ke liye (Redux ka alternative)
+useCallback → Functions ko optimize karne ke liye
+useMemo → Expensive calculations ko optimize karne ke liye
+useRef → DOM manipulation aur values ko persist karne ke liye
+useLayoutEffect → useEffect ka ek variant jo synchronous execution karta hai
+useImperativeHandle → Parent component ko child ke methods expose karne ke liye
+🔹 Custom Hooks
+Agar multiple components me same logic baar-baar likhna pade, toh hum Custom Hooks bana sakte hain.
+🟢 Basic Level Questions
+1️⃣ Context API kya hota hai?
+Answer:
+Context API ek state management tool hai jo React ke andar hi built-in hota hai. Iska use global state ko manage karne ke liye hota hai
+ taaki props drilling ko avoid kiya ja sake.
+
+2️⃣ Context API ka use kab karna chahiye?
+Answer:
+Agar kisi application me multiple components ko ek hi state ki zaroorat hoti hai aur props drilling (data ko multiple levels tak manually pass karna) 
+ho rahi hai, toh Context API ka use karna best option hai.
+
+3️⃣ Context API kaise kaam karta hai?
+Answer:
+Context API teen cheezon ka use karta hai:
+
+React.createContext() – Ek naya context banata hai
+Provider – Jo data provide karta hai
+Consumer ya useContext() – Jo data ko consume karta hai
+🟡 Intermediate Level Questions
+4️⃣ React Context API ko Redux ke sath compare karo.
+Feature	Context API	Redux
+Purpose	Global state management for small to medium apps	Complex state management for large apps
+Performance	Re-renders ho sakte hain	Optimized with actions and reducers
+Boilerplate Code	Kam code likhna padta hai	Zyada configuration aur setup chahiye
+Middleware Support	Nahi hai	Haan, jaise Redux Thunk, Redux Saga
+5️⃣ React Context API ka performance issue kaise solve kar sakte hain?
+Answer:
+
+Context ko chhote chhote parts me divide karo – Har component ko sirf usi context ka access do jo usko chahiye
+useMemo() ka use karo – Taaki unnecessary re-renders avoid ho
+useReducer() ka use karo – Agar complex state management ho
+6️⃣ Multiple Contexts ek sath kaise use karein?
+Answer:
+Agar ek se zyada contexts ka use karna ho, toh Context Provider ko nested ya separate files me wrap kar sakte hain.
+
+jsx
+Copy
+Edit
+function App() {
+  return (
+    <ThemeProvider>
+      <AuthProvider>
+        <MainComponent />
+      </AuthProvider>
+    </ThemeProvider>
+  );
+}
+🔴 Advanced Level Questions
+7️⃣ useContext() hook ka kya use hai?
+Answer:
+useContext() ek built-in React hook hai jo Context API se direct value access karne ke liye use hota hai bina Consumer component likhne ke.
+
+jsx
+Copy
+Edit
+const theme = useContext(ThemeContext);
+8️⃣ Context API ke andar state update kaise hoti hai?
+Answer:
+Context ke andar state update karne ke liye hum useState ya useReducer ka use karte hain.
+
+jsx
+Copy
+Edit
+const [theme, setTheme] = useState("light");
+
+return (
+  <ThemeContext.Provider value={{ theme, setTheme }}>
+    {children}
+  </ThemeContext.Provider>
+);
+9️⃣ Context API ke andar asynchronous operations kaise handle karein?
+Answer:
+Agar koi API call karni ho toh useEffect() aur useReducer() ka combination use kar sakte hain.
+
+jsx
+Copy
+Edit
+const fetchData = async () => {
+  const response = await fetch("https://api.example.com/data");
+  const data = await response.json();
+  dispatch({ type: "SET_DATA", payload: data });
+};
+🔟 Kya Context API har render pe re-render hota hai? Agar haan toh kaise optimize karein?
+Answer:
+Haan, Context API har re-render pe re-render ho sakta hai agar uske value object ya function reference change ho jaye. Optimization techniques:
+
+useMemo() – Values ko memoize karne ke liye
+Separate Contexts – Alag alag context bana ke re-renders minimize karna
+Component Composition – Sirf required components ko wrap karna

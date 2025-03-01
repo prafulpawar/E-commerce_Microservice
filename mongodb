@@ -1,0 +1,91 @@
+Basic Questions
+MongoDB kya hai?
+→ MongoDB ek NoSQL database hai jo document-oriented hai aur JSON-like BSON format use karta hai.
+
+Mongoose kya hai aur iska use kyun karte hain?
+→ Mongoose ek ODM (Object Data Modeling) library hai jo MongoDB ke liye schema-based modeling provide karti hai.
+
+MongoDB mein SQL databases ke comparison mein kya differences hain?
+→
+
+SQL: Structured, Tables-based
+MongoDB: NoSQL, Document-based
+SQL: Fixed Schema
+MongoDB: Flexible Schema
+MongoDB mein CRUD operations kaise perform karte hain?
+→ Create: db.collection.insertOne({name: "John"})
+→ Read: db.collection.find({})
+→ Update: db.collection.updateOne({name: "John"}, {$set: {age: 25}})
+→ Delete: db.collection.deleteOne({name: "John"})
+
+MongoDB mein indexing ka kya role hai?
+→ Indexing query performance improve karta hai. Default index _id hota hai, but hum manually bhi indexes bana sakte hain:
+
+js
+Copy
+Edit
+db.collection.createIndex({ name: 1 })
+Mongoose-Specific Questions
+Mongoose schema aur model mein kya difference hai?
+→ Schema structure define karta hai, aur Model us schema ka instance hota hai jo MongoDB se interact karta hai.
+
+Mongoose mein validation kaise implement karte hain?
+
+
+const userSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    age: { type: Number, min: 18 }
+});
+Mongoose middleware (pre/post hooks) kya hote hain?
+→ Yeh functions hain jo operations ke pehle (pre) ya baad (post) chalte hain. Example:
+
+
+userSchema.pre("save", function (next) {
+    console.log("Saving user...");
+    next();
+});
+Mongoose virtuals kya hote hain?
+→ Yeh derived fields hote hain jo DB mein store nahi hote, but query ke time generate hote hain.
+
+userSchema.virtual("fullName").get(function () {
+    return this.firstName + " " + this.lastName;
+});
+Populate method kya hai?
+→ Relationships handle karne ke liye Mongoose populate() method use karta hai.
+
+
+User.find().populate("posts").exec((err, users) => {});
+Advanced Questions
+Aggregation pipeline kya hota hai?
+→ Complex queries ke liye aggregation pipeline use hoti hai, jo multiple stages mein data process karti hai.
+
+db.users.aggregate([
+    { $match: { age: { $gt: 18 } } },
+    { $group: { _id: "$city", totalUsers: { $sum: 1 } } }
+]);
+Mongoose mein transactions kaise handle karte hain?
+→ Transactions ACID compliance ensure karti hain.
+
+
+const session = await mongoose.startSession();
+session.startTransaction();
+try {
+    await User.updateOne({ _id: userId }, { $inc: { balance: -100 } }).session(session);
+    await Order.create([{ user: userId, amount: 100 }], { session });
+    await session.commitTransaction();
+} catch (error) {
+    await session.abortTransaction();
+}
+MongoDB sharding kya hai?
+→ Sharding ek horizontal scaling technique hai jo large datasets ko multiple servers par distribute karti hai.
+
+Mongoose mein performance optimization kaise kar sakte hain?
+
+Indexing use karein
+Query projection use karein (.select("name age"))
+Lean queries use karein (.lean())
+Caching implement karein
+Mongoose vs MongoDB native driver mein kya difference hai?
+
+Mongoose: Schema-based, ORM-like, easy-to-use
+MongoDB Native Driver: Direct query execution, flexible but verbose

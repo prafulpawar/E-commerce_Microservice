@@ -1,0 +1,127 @@
+MERN Stack - 20 Interview Questions & Answers
+1. MERN Stack kya hai?
+Ans: MERN Stack ek JavaScript-based technology stack hai jo MongoDB, Express.js, React.js, aur Node.js ka combination hai. Yeh full-stack development ke liye use hota hai.
+
+2. MongoDB kyun use karte hain?
+Ans: MongoDB ek NoSQL database hai jo flexible document-based structure provide karta hai. Yeh scalability, high availability, aur performance ke liye jaana jata hai.
+
+3. Express.js ka kya role hai?
+Ans: Express.js ek lightweight backend web framework hai jo Node.js ke upar bana hai. Yeh RESTful APIs aur server-side logic likhne me madad karta hai.
+
+4. React.js aur Angular me kya difference hai?
+Ans:
+
+React.js ek library hai jo sirf UI ke liye use hoti hai.
+Angular ek full-fledged framework hai jo routing, state management, aur other built-in features provide karta hai.
+5. React me state aur props ka kya difference hai?
+Ans:
+
+State: Component ka internal data hota hai jo update ho sakta hai.
+Props: Parent component se pass kiya gaya data hota hai jo immutable hota hai.
+6. Redux kyun use hota hai?
+Ans: Redux ek state management library hai jo large-scale applications me centralized state management provide karta hai.
+
+7. Node.js asynchronous kaise kaam karta hai?
+Ans: Node.js event-driven architecture aur non-blocking I/O model ka use karta hai. Yeh Event Loop aur Callbacks ka use karke async tasks handle karta hai.
+
+8. REST API aur GraphQL me kya difference hai?
+Ans:
+
+REST API: Fixed endpoints hote hain (GET, POST, PUT, DELETE).
+GraphQL: Clients apni requirement ke according data fetch kar sakte hain.
+9. JWT authentication kaise kaam karta hai?
+Ans: JWT (JSON Web Token) ek token-based authentication system hai jisme ek signed token hota hai jo header, payload, aur signature se bana hota hai.
+
+10. Context API aur Redux me kya difference hai?
+Ans: Context API React ka built-in state management tool hai, jabki Redux ek external library hai jo large applications ke liye use hoti hai.
+
+11. React Router kya hota hai?
+Ans: React Router ek library hai jo SPA (Single Page Applications) me client-side navigation provide karta hai.
+
+12. MERN Stack me Deployment kaise karte hain?
+Ans: MERN applications ko Vercel, Netlify, Heroku, AWS, aur DigitalOcean jaise platforms pe deploy kar sakte hain.
+
+13. React me useEffect hook ka kya kaam hai?
+Ans: useEffect ek lifecycle hook hai jo side effects handle karta hai jaise API calls, subscriptions, aur DOM manipulation.
+
+14. Server-side rendering (SSR) aur client-side rendering (CSR) me kya difference hai?
+Ans:
+
+SSR (Server-Side Rendering): Page render hone se pehle server pe process hota hai (Next.js).
+CSR (Client-Side Rendering): Page load hone ke baad client-side me render hota hai (React.js).
+15. Mongoose schema aur model kya hai?
+Ans: Mongoose me schema data structure define karta hai aur model us schema ke base par MongoDB collections ko interact karta hai.
+
+16. React me keys ka kya use hai?
+Ans: Keys uniquely identify karne ke liye use hoti hain taaki React efficiently DOM update kar sake.
+
+17. React me controlled aur uncontrolled components kya hote hain?
+Ans:
+
+Controlled Components: React state handle karti hai.
+Uncontrolled Components: DOM ke andar hi state handle hoti hai (Ref use hota hai).
+18. WebSockets ka use kab karte hain?
+Ans: Jab real-time communication chahiye jaise chat applications, stock market updates, aur multiplayer gaming me.
+
+19. Node.js me Middleware kya hota hai?
+Ans: Middleware ek function hai jo request aur response ke beech me execute hota hai, jaise authentication, logging, aur error handling.
+
+20. React Hook Form aur Formik me kya difference hai?
+Ans:
+
+React Hook Form: Lightweight, built-in form handling.
+Formik: Advanced form handling aur validation ke liye use hota hai.
+Backend Development - 20 Interview Questions & Answers
+1. Backend Development kya hota hai?
+Ans: Backend Development me server-side logic, database interaction, aur API creation hoti hai.
+
+2. Express.js me middleware ka kya role hota hai?
+Ans: Middleware requests ko modify kar sakta hai, authentication check kar sakta hai, aur errors handle kar sakta hai.
+
+3. Node.js Single-threaded hone ke bawajood concurrent kaise hota hai?
+Ans: Kyunki Node.js non-blocking I/O aur event loop use karta hai.
+
+4. RESTful API aur SOAP API me kya difference hai?
+Ans: RESTful API lightweight aur scalable hoti hai, jabki SOAP API secure aur standardized hoti hai.
+
+5. Express.js me CORS issue kaise solve karein?
+Ans: cors package install karke:
+
+javascript
+Copy
+Edit
+const cors = require('cors');
+app.use(cors());
+6. JWT aur OAuth me kya difference hai?
+Ans: JWT ek stateless token-based authentication hai, jabki OAuth authorization ke liye use hota hai.
+
+7. Node.js me file upload kaise karte hain?
+Ans: multer package use karke file upload kar sakte hain.
+
+8. MongoDB me indexing kyun zaroori hoti hai?
+Ans: Indexing se queries fast hoti hain aur performance improve hoti hai.
+
+9. SQL aur NoSQL databases me kya difference hai?
+Ans: SQL structured hota hai aur relational databases ke liye use hota hai, jabki NoSQL flexible aur unstructured data ke liye use hota hai.
+
+10. WebSockets aur HTTP me kya difference hai?
+Ans: WebSockets full-duplex communication provide karta hai, jabki HTTP request-response model pe kaam karta hai.
+
+11. Node.js me process management kaise karte hain?
+Ans: PM2 process manager ka use karke.
+
+12. Backend security best practices kya hain?
+Ans:
+
+HTTPS use karna
+JWT ya OAuth authentication
+Rate limiting lagana
+13. API throttling kya hoti hai?
+Ans: API calls ki limit set karna taaki DDoS attack se bacha ja sake.
+
+14. SQL Injection attack kaise prevent karein?
+Ans: Parameterized queries aur ORM ka use karke.
+
+15. Docker backend development me kaise helpful hai?
+Ans: Docker se containerization hoti hai jo deployment aur scalability improve karta hai.
+

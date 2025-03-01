@@ -1,0 +1,161 @@
+**HTML Interview Questions & Answers**
+
+### 1. HTML ke different tags ka kya use hai?
+- `<section>` → Page ke different sections banane ke liye
+- `<article>` → Independent content jise alag se publish kiya ja sake (news, blog post)
+- `<header>` → Page ya section ka header
+- `<footer>` → Page ya section ka footer
+- `<aside>` → Sidebar content
+- `<nav>` → Navigation links ke liye
+
+### 2. HTML5 aur HTML4 mein kya difference hai?
+| Feature | HTML4 | HTML5 |
+|---------|-------|-------|
+| Audio/Video Support | Nahi hai | `<audio>` aur `<video>` tags available hain |
+| Graphics | Flash use hota tha | `<canvas>` aur `<svg>` support karta hai |
+| Form Elements | Basic form elements | New input types (email, date, range) |
+
+### 3. Semantic HTML kya hota hai?
+Semantic HTML aise tags hote hain jo meaning define karte hain. Example:
+```html
+<header>Website Header</header>
+<nav>Navigation Links</nav>
+<article>Blog Content</article>
+```
+Non-semantic: `<div>` aur `<span>`.
+
+### 4. Inline, Block aur Inline-Block elements ka kya farak hai?
+| Type | Example | Behavior |
+|------|---------|----------|
+| Block | `<div>`, `<p>`, `<h1>` | Poora width leta hai, new line pe aata hai |
+| Inline | `<span>`, `<a>`, `<strong>` | Sirf content ki width leta hai |
+| Inline-Block | `<button>`, `<input>` | Inline behave karta hai but width set kar sakte hain |
+
+### 5. HTML entities kya hoti hain? Example do.
+Jab hume special characters directly likhne se issue hota hai tab HTML entities ka use hota hai.
+| Entity | Symbol |
+|--------|--------|
+| `&lt;` | `<` |
+| `&gt;` | `>` |
+| `&copy;` | © |
+| `&nbsp;` | Non-breaking space |
+
+### 6. Iframe kya hota hai aur iska use case kya hai?
+Iframe ek HTML document ko doosre HTML page ke andar embed karne ke liye use hota hai.
+```html
+<iframe src="https://www.example.com" width="500" height="300"></iframe>
+```
+Use Cases: Google Maps, YouTube videos embed karne ke liye.
+
+### 7. Meta tags ka kya role hai SEO ke liye?
+Meta tags search engines ko page ki information dete hain.
+```html
+<meta name="description" content="Best coding tutorials for developers">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+```
+
+### 8. Form validation bina JavaScript ke kaise kar sakte hain?
+```html
+<input type="email" required>
+<input type="text" pattern="[A-Za-z]{3,}">
+```
+
+### 9. Lazy loading kya hota hai images ke liye?
+```html
+<img src="image.jpg" loading="lazy" alt="Lazy Image">
+```
+
+### 10. Difference between `<div>` aur `<span>`?
+- `<div>` → Block element, multiple lines le sakta hai
+- `<span>` → Inline element, sirf content ke size tak hi rehta hai
+
+---
+
+**CSS Interview Questions & Answers**
+
+### 1. CSS specificity kya hoti hai?
+| Selector Type | Specificity Value |
+|--------------|------------------|
+| Inline Styles (`style=""`) | 1000 |
+| ID Selector (`#id`) | 100 |
+| Class, Attribute, Pseudo-class (`.class`, `[attr]`, `:hover`) | 10 |
+| Element Selector (`div`, `p`, `h1`) | 1 |
+
+### 2. Flexbox aur Grid mein kya difference hai?
+| Feature | Flexbox | Grid |
+|---------|--------|------|
+| Axis | One-dimensional | Two-dimensional |
+| Best for | Aligning items in row/column | Full-page layout |
+| Example | `display: flex;` | `display: grid;` |
+
+### 3. CSS ke different positioning methods kya hain?
+- `static` → Default position
+- `relative` → Normal position se shift hota hai
+- `absolute` → Nearest positioned parent ke relative hota hai
+- `fixed` → Viewport pe fixed hota hai
+- `sticky` → Scroll ke according adjust hota hai
+
+### 4. Z-index kya hota hai aur kaise kaam karta hai?
+```css
+.box {
+  position: absolute;
+  z-index: 10;
+}
+```
+
+### 5. Difference between em, rem, %, px, vh, vw units?
+| Unit | Meaning |
+|------|---------|
+| px | Fixed size |
+| em | Parent font-size ke relative |
+| rem | Root font-size ke relative |
+| % | Parent width ke relative |
+| vh, vw | Viewport height/width ke relative |
+
+### 6. Pseudo-elements aur Pseudo-classes mein kya farak hai?
+- **Pseudo-classes** (`:hover`, `:nth-child()`) → State-based
+- **Pseudo-elements** (`::before`, `::after`) → Extra elements add karte hain
+
+### 7. Animation aur Transition ka kya difference hai?
+| Feature | Transition | Animation |
+|---------|-----------|-----------|
+| Trigger | Hover, click | Automatic |
+| Control | Limited | Full control |
+
+### 8. Media queries ka use kaise hota hai responsive design mein?
+```css
+@media (max-width: 768px) {
+  body {
+    background-color: lightgray;
+  }
+}
+```
+
+---
+
+**SCSS (SASS) Interview Questions & Answers**
+
+### 1. SCSS aur CSS mein kya difference hai?
+SCSS variables, nesting, mixins aur functions support karta hai.
+
+### 2. Mixins kya hote hain?
+```scss
+@mixin button-style {
+  background-color: blue;
+  color: white;
+}
+.btn {
+  @include button-style;
+}
+```
+
+### 3. SCSS variables kaise kaam karte hain?
+```scss
+$primary-color: #ff5733;
+body { background-color: $primary-color; }
+```
+
+### 4. Extend (@extend) aur Mixin (@mixin) ka difference?
+- `@extend` styles share karta hai
+- `@mixin` dynamic aur reusable hota hai
+
