@@ -1,19 +1,24 @@
-const mongoose = require('mongoose')
 const stockSchema = new mongoose.Schema({
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product', required: true
+    },
 
-    
-    stock: [
-        {
-            quantity: {
-                type: Number,
-                required: true
-            }
-        }
-    ],
+    warehouse: {
+        type: String,
+        required: true
+    },
 
-    warehouse: { type: String }
+    quantity: {
+        type: Number,
+        required: true, min: 0
+    },
+    lastUpdated: {
 
-})
+        type: Date,
+        default: Date.now
+    }
+});
 
-const stockModel = mongoose.model('product', stockSchema);
-module.exports = stockModel
+const Stock = mongoose.model('Stock', stockSchema);
+module.exports = Stock;
