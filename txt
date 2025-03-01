@@ -2,7 +2,8 @@ Here are some basic Node.js interview questions with brief answers:
 
 1. What is Node.js?
 Answer: Node.js ek open-source, server-side runtime environment hai jo JavaScript ko execute karta hai.
- Yeh Chrome’s V8 JavaScript engine par based hai aur non-blocking, event-driven I/O model follow karta hai, jo Node.js ko fast aur scalable banata hai.
+ Yeh Chrome’s V8 JavaScript engine par based hai aur non-blocking, 
+ event-driven I/O model follow karta hai, jo Node.js ko fast aur scalable banata hai.
 
 2. What is the Event Loop in Node.js?
 Answer: Event Loop ek mechanism hai jo asynchronous operations ko handle karta hai. 
