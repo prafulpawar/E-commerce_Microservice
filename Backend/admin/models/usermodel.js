@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 const userSchema = new mongoose.Schema({
       name:{
         type:String,
@@ -16,4 +17,9 @@ const userSchema = new mongoose.Schema({
       },
 })
 
+userSchema.statics.hash = function(password){
+      return bcrypt.hash(password,10)
+}
+
 const userModel = mongoose.model("AdminUsers",userSchema);
+module.exports = userModel;

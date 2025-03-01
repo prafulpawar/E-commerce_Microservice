@@ -4,21 +4,23 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const app = express();
 const PORT = 5000;
 
-// User Service Proxy (Forward requests to User Service)
+// User Service Proxy
 app.use(
-  "/user",
+  "/api/user",
   createProxyMiddleware({
     target: "http://localhost:5001", // User Service
     changeOrigin: true,
+    pathRewrite: { "^/api/user": "" },
   })
 );
 
-// Admin Service Proxy (Forward requests to Admin Service)
+// Admin Service Proxy
 app.use(
-  "/admin",
+  "/api/admin",
   createProxyMiddleware({
     target: "http://localhost:5002", // Admin Service
     changeOrigin: true,
+    pathRewrite: { "^/api/admin": "" }, // Ensure correct pathRewrite
   })
 );
 
