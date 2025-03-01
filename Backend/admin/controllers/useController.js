@@ -49,6 +49,9 @@ module.exports.adminCreateController =  async(req,res)=>{
            password:hashPassword
  
      })
+       //token generation 
+       
+
       }
       catch(error){
           return res.status(500).json({

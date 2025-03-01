@@ -20,9 +20,9 @@ app.use(
   createProxyMiddleware({
     target: "http://localhost:5002", // Admin Service
     changeOrigin: true,
-    pathRewrite: { "^/api/admin": "" }, // Ensure correct pathRewrite
   })
 );
+
 
 app.get("/", (req, res) => {
   res.send("API Gateway is running...");

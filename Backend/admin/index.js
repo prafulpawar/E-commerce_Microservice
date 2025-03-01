@@ -10,6 +10,7 @@ connectDB();
 // Middleware for JSON parsing
 app.use(express.json());
 
+// Import Routes
 const userRouter = require("./routes/user.routes");
 
 // Base Route
@@ -17,8 +18,8 @@ app.get("/", (req, res) => {
   res.send("Admin Service is Running...");
 });
 
-// Use /admin/user instead of just /user
-app.use("/admin/user", userRouter);
+// Fix: Correct Route Prefix (Keep Consistent)
+app.use("/user", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Admin Service running on http://localhost:${PORT}`);
