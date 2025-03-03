@@ -2,7 +2,7 @@ const categoryModel = require("../models/categorymodel");
 
 module.exports.createProduct = async(req,res)=>{
       try{
-         const {name,brand,category,price,description} = req.body;
+         const {name,brand,category,price,description,stock,warehouse,quantity} = req.body;
          if (!name) {
             return res.status(400).json({ error: 'Name is required' });
           }

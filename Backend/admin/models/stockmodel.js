@@ -15,7 +15,6 @@ const stockSchema = new mongoose.Schema({
         required: true, min: 0
     },
     lastUpdated: {
-
         type: Date,
         default: Date.now
     }
