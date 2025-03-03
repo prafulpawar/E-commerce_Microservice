@@ -1,4 +1,5 @@
 const categoryModel = require("../models/categorymodel");
+const Stock = require("../models/stockmodel");
 
 module.exports.createProduct = async(req,res)=>{
       try{
@@ -22,6 +23,22 @@ module.exports.createProduct = async(req,res)=>{
           if (!description) {
               return res.status(400).json({error: 'Description is required'});
           }
+
+          if(!stock){
+            return res.status(400).json({error: 'Stock is required'});
+          }
+
+          if(!warehouse){
+            return res.status(400).json({error: 'Stock is required'});
+          }
+
+
+          if(!quantity){
+            return res.status(400).json({error: 'Stock is required'});
+          }
+
+
+
           // validating the category 
           const categoryExists = await categoryModel.findOne({
             category
@@ -49,12 +66,20 @@ module.exports.createProduct = async(req,res)=>{
                 description,
                 images
           })
+
+         const stockCreated = await Stock.create({
+             product:productsCreate._id,
+             warehouse,
+             quantity,
+         })
+
+
          
           return res.status(200).json({
             data:productsCreate,
+            data:stockCreated,
             message:"Product Is Created"
           })
-          
 
       }  
       catch(error){
