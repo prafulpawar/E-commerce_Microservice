@@ -1,4 +1,5 @@
 const categoryModel = require("../models/categorymodel");
+
 module.exports.categoryController =async (req,res)=>{
        try{
            const {category,subcategory} = req.body;
@@ -46,7 +47,7 @@ module.exports.categoryController =async (req,res)=>{
             data:createdCategory,
             message:true
          })
-         
+
        }
        
        catch(error){
