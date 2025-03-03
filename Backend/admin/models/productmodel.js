@@ -7,7 +7,7 @@ const productSchema = new mongoose.Schema({
     category: {
         type: mongoose.Schema.Types.ObjectId, 
         ref:'Category',
-         required: true
+        required: true
     },
 
     price: {
@@ -34,6 +34,9 @@ productSchema.pre('save', function (next) {
     }
     next();
 });
+
+
+
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

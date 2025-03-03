@@ -1,6 +1,36 @@
+const categoryModel = require("../models/categorymodel");
+
 module.exports.stockDetailsCategory = async(req,res)=>{
     try{
-         const {category} = req.body;
+
+         const { category } = req.body;
+         if(!category){
+            return res.status(400).json({
+                message:"No Category Is Given"
+            })
+         }
+         // exists category
+         const existsCat = await categoryModel.find({
+            category
+         })
+
+         if(!existsCat){
+            return res.status(400).json({
+                message:" Category Is Exists"
+            })
+         }
+
+         // categoryWise Products
+         
+         
+         
+        
+        return res.status(200).json({
+             data:existsCat,
+             message:"Successfully Fetched Category"
+        })
+
+       
 
     }
     catch(error){
@@ -26,7 +56,7 @@ module.exports.stockDetailsProduct = async(req,res)=>{
 module.exports.stockDetailsSubcategory = async(req,res)=>{
     try{
          const {Subcategory} = req.body;
-         
+
 
     }
     catch(error){
