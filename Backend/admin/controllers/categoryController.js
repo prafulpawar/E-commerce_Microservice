@@ -1,8 +1,6 @@
 const categoryModel = require("../models/categorymodel");
-
 module.exports.categoryController =async (req,res)=>{
        try{
-
            const {category,subcategory} = req.body;
 
            if(!category){
