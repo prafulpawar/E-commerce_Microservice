@@ -41,10 +41,12 @@ module.exports.categoryController =async (req,res)=>{
                 category,
                 subcategory
           })
+
          return res.status(200).json({
             data:createdCategory,
             message:true
          })
+         
        }
        
        catch(error){
