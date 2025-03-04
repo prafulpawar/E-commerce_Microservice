@@ -10,7 +10,7 @@ module.exports.stockDetailsCategory = async(req,res)=>{
             })
          }
          // exists category
-         const existsCat = await categoryModel.find({
+         const existsCat = await categoryModel.findOne({
             category
          })
 
@@ -21,7 +21,9 @@ module.exports.stockDetailsCategory = async(req,res)=>{
          }
 
          // categoryWise Products
-         
+        const products = await categoryModel.find({
+              existsCat
+        })
          
          
         
